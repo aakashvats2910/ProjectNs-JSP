@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .right-element {
+            margin-left: 212px;
+        }
+
+        .sidenav {
+            background-color: #3a3c3d;
+            width: 220px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            display: inline-block;
+            float: left;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #f5f5f5;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            background-color: #3498DB;
+        }
+
+        #logout {
+            color: #ff0000;
+        }
+
+        #logout:hover {
+            background-color: #ff0000;
+            color: black;
+        }
+
+        .customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 97%;
+            margin-left: 1%;
+            left: 0;
+            align-content: center;
+            float: left;
+        }
+
+        .customers td,
+        .customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .customers tr:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        .customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+            transition-duration: 0.4s;
+            border-radius: 2px;
+            padding: 0.7%;
+            /* Green */
+        }
+
+        .button1:hover {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            background-color: white;
+            color: black;
+            border: 2px solid #f44336;
+            transition-duration: 0.4s;
+            border-radius: 2px;
+            padding: 0.7%;
+        }
+
+        .delete-button:hover {
+            background-color: #f44336;
+            color: white;
+            cursor: pointer;
+        }
+
+        .edit-button {
+            background-color: white;
+            color: black;
+            border: 2px solid #3498DB;
+            transition-duration: 0.4s;
+            border-radius: 2px;
+            padding: 0.7%;
+        }
+
+        .edit-button:hover {
+            background-color: #3498DB;
+            color: white;
+            cursor: pointer;
+        }
+
+        /*============================*/
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .title {
+            text-align: left;
+            margin-left: 10%;
+        }
+
+        .card button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .title a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+        .card button:hover,
+        .card a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!--dashboard left panel-->
+        <div class="sidenav">
+            <a th:href="@{/adminpageclient}">Clients</a>
+            <a th:href="@{/adminpageactivity}">Activities</a>
+            <a th:href="@{/brainstorming}">Brainstorming</a>
+            <a th:href="@{/login}" id="logout">Logout</a>
+        </div>
+
+        <div class="right-element">
+            <h1 style="text-align: center; color: #777">Admin Dashboard - Clients</h1>
+            <div>
+                <!--Clients Lists-->
+                <table class="customers">
+                    <tr>
+                        <th>Client Name</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                        <th>ID</th>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>180007</td>
+                    </tr>
+                    <tr>
+                        <td>Berglunds snabbköp</td>
+                        <td>Christina Berglund</td>
+                        <td>Sweden</td>
+                        <td>180010</td>
+                    </tr>
+                    <tr>
+                        <td>Centro comercial Moctezuma</td>
+                        <td>Francisco Chang</td>
+                        <td>Mexico</td>
+                        <td>180017</td>
+                    </tr>
+                    <tr>
+                        <td>Ernst Handel</td>
+                        <td>Roland Mendel</td>
+                        <td>Austria</td>
+                        <td>180036</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="searcharea" style="margin-left: 1%; margin-top: 1%;">
+                <!--Search option-->
+                <input type="text" placeholder="Search Client"
+                    style="height: 30px; text-align: center; margin-top: 2%;">
+                <button class="button1">Search</button>
+            </div>
+            <div>
+                <p style="font-family:verdana; text-align: center; color: #777; font-size: 25px;">
+                    Full Client Details
+                </p>
+                <p>
+                <table class="customers">
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Client Name</td>
+                        <td>Ernst Handel</td>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td>0001</td>
+                    </tr>
+                    <tr>
+                        <td>Profile Created</td>
+                        <td>15-09-2020</td>
+                    </tr>
+                    <tr>
+                        <td>Last Login</td>
+                        <td>16-08-2020 11:40:17 AM</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>Frankfurt, Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Contact</td>
+                        <td>+91 84648688898</td>
+                    </tr>
+                    <tr>
+                        <td>Last Profile Edit</td>
+                        <td>16-08-2020 01:40:17 PM</td>
+                    </tr>
+                </table>
+                </p>
+            </div>
+
+            <div style="margin-left: 1%; margin-top: 20px;">
+                <a th:href="@{/deleteclient}"><button class="delete-button" style="margin-top: 1%;">Delete Client</button></a>
+                <a th:href="@{/registerclient}"><button class="edit-button">Edit Client</button></a>
+                <a th:href="@{/registerclient}"><button class="button1" style="margin-bottom: 50px;">Create Client</button></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
