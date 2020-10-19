@@ -13,7 +13,7 @@ public class JDBCClient {
     private static Connection initialize() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/nbs","root","A@kash2910");
+                "jdbc:mysql://localhost:3306/nbs","root","Password");
     }
 
     public static void saveClientInfo(ClientDatabaseEntity clientDatabaseEntity) throws ClassNotFoundException, SQLException {
